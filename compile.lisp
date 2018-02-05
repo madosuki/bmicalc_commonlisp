@@ -3,5 +3,3 @@
 (sb-ext:save-lisp-and-die "bmi-calc"
                           :toplevel #'main
                           :executable t)
-
-(main)
