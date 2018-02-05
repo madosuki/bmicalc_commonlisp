@@ -1,4 +1,4 @@
-/(load "bmi.lisp")
+(load "bmi.lisp")
 
 (defvar *option_kg* nil)
 (defvar *option_cm* nil)
