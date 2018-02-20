@@ -5,6 +5,9 @@
 (defvar *kg* 0)
 (defvar *cm* 0)
 
+(defmacro msg()
+  `(format t "このアプリはBMI計算機です。~%-kg 46 -cm 153 といった感じにコマンドライン引数として体重と身長（センチメートル）を渡してください。~%"))
+
 (defun init()
   (dolist (x sb-ext:*posix-argv*)
       (cond
@@ -21,9 +24,11 @@
 
 (defun main()
   (init)
-  (cond ((and (/= *kg* 0) (/= *cm* 0))
-         (bmi *kg* *cm*))
+  (cond ((or (eq (null *kg*) t) (eq (null *cm*) t))
+         (msg))
         ((or (= *kg* 0) (= *cm* 0))
-         (format t "このアプリはBMI計算機です。~%-kg 46 -cm 153 といった感じにコマンドライン引数として体重と身長（センチメートル）を渡してください。~%"))))
+         (msg))
+        ((and (/= *kg* 0) (/= *cm* 0))
+         (bmi *kg* *cm*))))
 
 (main)
