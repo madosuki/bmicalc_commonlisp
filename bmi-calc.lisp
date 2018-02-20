@@ -6,13 +6,13 @@
 (defvar *cm* 0)
 
 (defun init()
-    (dolist (x sb-ext:*posix-argv*)
+  (dolist (x sb-ext:*posix-argv*)
       (cond
         ((equal *option_kg* t)
-         (setq *kg* (parse-integer x))
+         (setq *kg* (parse-integer x :junk-allowed t))
          (setq *option_kg* nil))
         ((equal *option_cm* t)
-         (setq *cm* (parse-integer x))
+         (setq *cm* (parse-integer x :junk-allowed t))
          (setq *option_cm* nil))
         ((string= x "-kg")
          (setq *option_kg* t))
