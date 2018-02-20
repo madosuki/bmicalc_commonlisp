@@ -24,7 +24,7 @@
 
 (defun main()
   (init)
-  (cond ((or (eq (null *kg*) t) (eq (null *cm*) t))
+  (cond ((or (equal (null *kg*) t) (equal (null *cm*) t))
          (msg))
         ((or (= *kg* 0) (= *cm* 0))
          (msg))
